@@ -14,21 +14,20 @@
     //   echo "Hei! Hai già caricato in precenza questo progetto!";
     // } else{
     move_uploaded_file($temp_name,$path_filename_ext); //muovo il file(percorso di dove è situato ora, dove lo salvo)
+    $za = new ZipArchive();
+    $za->open($path_filename_ext);
     echo "
     <p>" . $filename . " è stato caricato correttamente </p>" . "<br>" .
     "Nome: ". $filename . "." . $ext . "<br>" .
-    "Dimensione: ". round($filesize) . " KB" . "<br>" ;
+    "Dimensione: ". round($filesize) . " KB" . "<br>" . 
+    "Numero File: ".$za->numFiles . "<br>" .
+    "Lista dei file: " . "<br>" ;
     // }
 
-    $za = new ZipArchive();
-    $za->open($path_filename_ext);
-    
 
     for($i = 1; $i < $za->numFiles; $i++){
       $stat = $za->statIndex($i);
-      print_r(basename($stat['name']).PHP_EOL . "<br>");
+      print_r('<p style="margin-left: 100px;"> - ' .   basename($stat['name']).PHP_EOL  .'</p> <br>');
     }
-
-    echo 'Numero dei file: ' . $i;
   }
 ?>
