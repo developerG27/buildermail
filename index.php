@@ -7,8 +7,8 @@
   <title>BuilderMail</title>
 </head>
 <body>
+
   <h2>Carica il file .zip</h2>
-  
   <form name="form" method="post" action="upload.php" enctype="multipart/form-data" >
     <p>Non caricare ZIP troppo grandi!</p>
     <input type="file" name="my_file" />
