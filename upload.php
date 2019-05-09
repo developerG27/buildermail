@@ -27,7 +27,7 @@
 
     for($i = 1; $i < $za->numFiles; $i++){
       $stat = $za->statIndex($i);
-      print_r('<p style="margin-left: 100px;"> - ' .   basename($stat['name']).PHP_EOL  .'</p> <br>');
+      print_r('<p class="file"> - ' .   basename($stat['name']).PHP_EOL  .'</p> <br>');
     }
   }
 ?>
